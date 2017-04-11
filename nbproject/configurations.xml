@@ -4,12 +4,16 @@
     <logicalFolder name="SourceFiles"
                    displayName="Исходные файлы"
                    projectFiles="true">
+      <itemPath>src/integrate.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>src/right_part.cpp</itemPath>
       <itemPath>vector3d.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Файлы заголовков"
                    projectFiles="true">
+      <itemPath>src/integrate.h</itemPath>
+      <itemPath>src/right_part.h</itemPath>
       <itemPath>vector3d.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -37,8 +41,19 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/integrate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/integrate.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/right_part.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/right_part.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="vector3d.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -66,6 +81,14 @@
         </asmTool>
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/integrate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/integrate.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/right_part.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/right_part.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="vector3d.cpp" ex="false" tool="1" flavor2="0">
       </item>

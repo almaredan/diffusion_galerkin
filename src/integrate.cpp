@@ -22,7 +22,7 @@ integrate::integrate(const integrate& orig) {
 integrate::~integrate() {
 }
 
-double integrate::operator()(std::function<double()(double) > f, double x0, double h) {
+double integrate::operator()(std::function< double (double) > f, double x0, double h) {
      return f(x0)*h  + ( f(x0+h/2) + f(x0-h/2) - 2*f(x0) )*h/6;
 }
 

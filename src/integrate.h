@@ -21,7 +21,7 @@ class integrate{
 public:
     integrate();
     integrate(const integrate& orig);
-    double operator() (std::function<double(double)> f,
+    double operator() (std::function<double (double)> f,
                         double x0, double h);
     virtual ~integrate();
 private:
