@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/src/integrate.o \
 	${OBJECTDIR}/src/right_part.o \
+	${OBJECTDIR}/src/scheme.o \
 	${OBJECTDIR}/vector3d.o
 
 
@@ -79,6 +80,11 @@ ${OBJECTDIR}/src/right_part.o: src/right_part.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/right_part.o src/right_part.cpp
+
+${OBJECTDIR}/src/scheme.o: src/scheme.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/scheme.o src/scheme.cpp
 
 ${OBJECTDIR}/vector3d.o: vector3d.cpp
 	${MKDIR} -p ${OBJECTDIR}

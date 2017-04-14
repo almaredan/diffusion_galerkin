@@ -38,13 +38,12 @@ scheme::scheme(double _x0, double _x1, double _T, double _cu, right_part& _f, in
     inv_M *= (1/h);
     for (int i = 0; i < N; ++i) {
         mesh.emplace_back(i + h/2);
-        velocity.emplace_back(f.fact(mesh.at(i), h));
+        velocity.emplace_back(inv_M * f.fact(mesh.at(i), h));
     }
     double tau = cu * h;
     num_of_iter = (int) (T/tau);
     
-    Vector3D zero();
-    flow.assign(N, zero);
+    flow.resize(N);
 }
 
 
