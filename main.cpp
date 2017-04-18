@@ -29,8 +29,15 @@ int main(int argc, char** argv) {
     };
     
     right_part sin(f);
-    scheme bassi_rebay(0, M_PI, 1, 1, sin, 100);
-    bassi_rebay.test_flow();
+    scheme fine(0, M_PI, 1, 0.01, sin, 10);
+    fine.test_flow();
+//    std::vector<double> out_vel = fine.solve();
+//    std::vector<double> mesh = fine.getMesh();
+//    for (int i = 0; i < fine.getN(); ++i) {
+//        std::cout << out_vel.at(i) << " " << (fine.getT() / M_E) * sin(mesh.at(i)) <<
+//                " " << abs(out_vel.at(i) - (fine.getT() / M_E) * sin(mesh.at(i)))
+//                << std::endl;
+//    }
     
     return 0;
 }

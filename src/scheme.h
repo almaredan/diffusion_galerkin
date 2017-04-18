@@ -26,12 +26,17 @@ public:
     scheme(const scheme& orig);
     void test_flow();
     virtual ~scheme();
+    std::vector<Vector3D> getVelocity() const;
+    std::vector<double> getMesh() const;
+    std::vector<double> solve();
+    int getN() const;
+    double getT() const;
 private:
     void step_one();
     void step_two();
     
-    double x0, x1, h, T;
-    int N, num_of_iter;
+    double x0, x1, h, T, cu, tau;
+    int num_of_nods, num_of_iter;
     std::vector<double> mesh;
     std::vector<Vector3D> velocity, flow;
     right_part f;
