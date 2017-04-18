@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
     };
     
     right_part sin(f);
-    scheme bassi_rebay(0, M_PI, 1, 1, sin, 10);
+    scheme bassi_rebay(0, M_PI, 1, 1, sin, 100);
     bassi_rebay.test_flow();
     
     return 0;
