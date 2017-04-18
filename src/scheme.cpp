@@ -21,14 +21,14 @@ scheme::scheme() {
 }
 
 scheme::scheme(double _x0, double _x1, double _T, double _cu, right_part& _f, int _N) {
-    M1(1, 0) = 1;
-    M1(1, 2) = 1/12;
-    M1(2, 1) = 1/6;
-    inv_M(0, 0) = 9/4;
-    inv_M(0, 2) = -15;
-    inv_M(1, 1) = 12;
-    inv_M(2, 0) = -15;
-    inv_M(2, 2) = 180;
+    M1(2, 1) = 1;
+    M1(2, 3) = 1/12;
+    M1(3, 2) = 1/6;
+    inv_M(1, 1) = 9/4;
+    inv_M(1, 3) = -15;
+    inv_M(2, 2) = 12;
+    inv_M(3, 1) = -15;
+    inv_M(3, 3) = 180;
     inv_M /= h;
     x0 = _x0;
     x1 = _x1;
