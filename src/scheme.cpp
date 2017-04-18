@@ -12,6 +12,7 @@
  */
 
 #include <complex>
+#include <iostream>
 
 #include "scheme.h"
 
@@ -56,10 +57,10 @@ scheme::scheme(const scheme& orig) {
 scheme::~scheme() {
 }
 
-void scheme::test_flow(std::iostream stream) {
+void scheme::test_flow() {
     step_one();
     for (int i = 0; i < N; ++i) {
-        stream << "Calculated: " << flow[i] <<
+        std::cout << "Calculated: " << flow[i][0] <<
                 " Real: " << std::cos( mesh.at(i) ) << std::endl;
     }
 }

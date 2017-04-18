@@ -38,7 +38,13 @@ public:
   {
     zero();
   }
-
+  
+  tensor3D(double * a) {
+      for (int i = 0; i < 9; ++i) {
+          b[i] = *(a+i);
+      }
+  }
+  
   void zero()
   {
     for ( int i = 0; i < 9; ++i )

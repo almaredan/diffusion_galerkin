@@ -24,7 +24,7 @@ public:
     scheme();
     scheme(double _x0, double _x1, double _T, double _cu, right_part& _f, int _N);
     scheme(const scheme& orig);
-    void test_flow(std::iostream stream);
+    void test_flow();
     virtual ~scheme();
 private:
     void step_one();

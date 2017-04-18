@@ -15,6 +15,7 @@
 #include <iostream>
 #include <math.h>
 #include"src/right_part.h"
+#include "src/scheme.h"
 
 //using namespace std;
 
@@ -28,9 +29,8 @@ int main(int argc, char** argv) {
     };
     
     right_part sin(f);
-    Vector3D tmp_vec;
-    tmp_vec = sin.fact(M_PI_2, M_PI);
-    std::cout << tmp_vec[0] << " " << tmp_vec[1] << " " << tmp_vec[2] << std::endl;
+    scheme bassi_rebay(0, M_PI, 1, 1, sin, 10);
+    bassi_rebay.test_flow();
     
     return 0;
 }
