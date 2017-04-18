@@ -41,7 +41,7 @@ public:
   
   void set_elements(double * a) {
       for (int i = 0; i < 9; ++i) {
-          b[i] = *(a+i);
+          b[i] = a[i];
       }
   }
   

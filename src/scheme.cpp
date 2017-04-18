@@ -21,25 +21,26 @@ scheme::scheme() {
 }
 
 scheme::scheme(double _x0, double _x1, double _T, double _cu, right_part& _f, int _N) {
-    M1(2, 1) = 1;
-    M1(2, 3) = 1/12;
-    M1(3, 2) = 1/6;
-    inv_M(1, 1) = 9/4;
-    inv_M(1, 3) = -15;
-    inv_M(2, 2) = 12;
-    inv_M(3, 1) = -15;
-    inv_M(3, 3) = 180;
-    inv_M /= h;
     x0 = _x0;
     x1 = _x1;
+    N = _N;
+    h = (x1 - x0)/N;
+    
+    double M1_arr [] = {0, 0, 0,
+                        1, 0, 1./12.,
+                        0, 1./6., 0};
+    double inv_M_arr [] = { 9./4., 0, -15,
+                            0, 12, 0,
+                            -15, 0, 180};
+    M1.set_elements(M1_arr);
+    inv_M.set_elements(inv_M_arr);
+    inv_M /= h;
+    
     T = _T;
     double cu = _cu;
     f = _f;
-    N = _N;
     uL = f(x0);
     uR = f(x1);
-    h = (x1 - x0)/N;
-    inv_M *= (1/h);
     for (int i = 0; i < N; ++i) {
         mesh.emplace_back(i + h/2);
         velocity.emplace_back(inv_M * f.fact(mesh.at(i), h));
