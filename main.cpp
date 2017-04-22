@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <math.h>
+#include <complex>
 #include"src/right_part.h"
 
 //using namespace std;
@@ -21,6 +22,7 @@
 /*
  * 
  */
+
 int main(int argc, char** argv) {
     
     std::function<double (double)> f = [](double x) -> double {
@@ -28,9 +30,34 @@ int main(int argc, char** argv) {
     };
     
     right_part sin(f);
-    Vector3D tmp_vec;
-    tmp_vec = sin.fact(M_PI_2, M_PI);
-    std::cout << tmp_vec[0] << " " << tmp_vec[1] << " " << tmp_vec[2] << std::endl;
+    scheme medium(0, 2*M_PI, 1, 1.e-5, sin, 50, "medium");
+    scheme corse(0, 2*M_PI, 1, 1.e-5, sin, 25, "corse");
+
+    std::vector<double> medium_ans = medium.solve();
+    std::vector<double> medium_mesh = medium.getMesh();
+    std::vector<double> corse_ans = corse.solve();
+    std::vector<double> corse_mesh = corse.getMesh();
+    
+    int i = 0;
+    double max_err_medium = 0;
+    for (double ans : medium_ans) {
+        if (max_err_medium < std::abs(ans - medium_mesh[i])) 
+                max_err_medium = std::abs(ans - std::exp(-1.)*sin(medium_mesh[i]));
+        ++i;
+    }
+    
+    i = 0;
+    double max_err_corse = 0;
+    for (double ans : corse_ans) {
+        if (max_err_corse < std::abs(ans - corse_mesh[i])) 
+                max_err_corse = std::abs(ans - std::exp(-1.)*sin(corse_mesh[i]));
+        ++i;
+    }
+    
+    double p = log(max_err_corse/max_err_medium) / 
+               log(corse.getH() / medium.getH());
+    
+    std::cout << p << std::endl;
     
     return 0;
 }

@@ -22,15 +22,24 @@
 class scheme {
 public:
     scheme();
-    scheme(double _x0, double _x1, double _T, double _cu, right_part& _f, int _N);
+    scheme(double _x0, double _x1, double _T, double _cu, right_part& _f, int _N,
+            std::string _name);
     scheme(const scheme& orig);
     virtual ~scheme();
+    std::vector<Vector3D> getVelocity() const;
+    std::vector<double> getMesh() const;
+    std::vector<double> solve();
+    int getN() const;
+    double getT() const;
+    double getH() const;
+
 private:
     Vector3D step_one();
     Vector3D step_two();
     
-    double x0, x1, h, T;
-    int N, num_of_iter;
+    double x0, x1, h, T, cu, tau;
+    std::string name;
+    int num_of_nods, num_of_iter;
     std::vector<double> mesh;
     std::vector<Vector3D> velocity, flow;
     right_part f;
