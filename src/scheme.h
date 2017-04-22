@@ -25,6 +25,7 @@ public:
     scheme(double _x0, double _x1, double _T, double _cu, right_part& _f, int _N,
             std::string _name);
     scheme(const scheme& orig);
+    void test_flow();
     virtual ~scheme();
     std::vector<Vector3D> getVelocity() const;
     std::vector<double> getMesh() const;
@@ -34,8 +35,8 @@ public:
     double getH() const;
 
 private:
-    Vector3D step_one();
-    Vector3D step_two();
+    void step_one();
+    void step_two();
     
     double x0, x1, h, T, cu, tau;
     std::string name;

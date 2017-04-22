@@ -16,6 +16,7 @@
 #include <math.h>
 #include <complex>
 #include"src/right_part.h"
+#include "src/scheme.h"
 
 //using namespace std;
 
@@ -30,6 +31,7 @@ int main(int argc, char** argv) {
     };
     
     right_part sin(f);
+<<<<<<< HEAD
     scheme medium(0, 2*M_PI, 1, 1.e-5, sin, 50, "medium");
     scheme corse(0, 2*M_PI, 1, 1.e-5, sin, 25, "corse");
 
@@ -58,6 +60,17 @@ int main(int argc, char** argv) {
                log(corse.getH() / medium.getH());
     
     std::cout << p << std::endl;
+=======
+    scheme fine(0, M_PI, 1, 0.01, sin, 10);
+    fine.test_flow();
+//    std::vector<double> out_vel = fine.solve();
+//    std::vector<double> mesh = fine.getMesh();
+//    for (int i = 0; i < fine.getN(); ++i) {
+//        std::cout << out_vel.at(i) << " " << (fine.getT() / M_E) * sin(mesh.at(i)) <<
+//                " " << abs(out_vel.at(i) - (fine.getT() / M_E) * sin(mesh.at(i)))
+//                << std::endl;
+//    }
+>>>>>>> test
     
     return 0;
 }
