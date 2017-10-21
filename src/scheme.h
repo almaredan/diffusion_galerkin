@@ -28,7 +28,9 @@ public:
     void test_flow();
     virtual ~scheme();
     std::vector<Vector3D> getVelocity() const;
+    std::vector<double> getVelocityAdded() const;
     std::vector<double> getMesh() const;
+    std::vector<double> getMeshAdded() const;
     std::vector<double> solve();
     int getN() const;
     double getT() const;
@@ -41,7 +43,7 @@ private:
     double x0, x1, h, T, cu, tau;
     std::string name;
     int num_of_nods, num_of_iter;
-    std::vector<double> mesh;
+    std::vector<double> mesh, meshAdded, velocityAdded;
     std::vector<Vector3D> velocity, flow;
     right_part f;
     double uL;

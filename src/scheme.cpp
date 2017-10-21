@@ -11,7 +11,6 @@
  * Created on 13 апреля 2017 г., 17:17
  */
 
-#include <complex>
 #include <iostream>
 
 #include "scheme.h"
@@ -65,6 +64,15 @@ std::vector<Vector3D> scheme::getVelocity() const {
     return velocity;
 }
 
+std::vector<double> scheme::getVelocityAdded() const {
+    return velocityAdded;
+}
+
+std::vector<double> scheme::getMeshAdded() const {
+    return meshAdded;
+}
+
+
 std::vector<double> scheme::getMesh() const {
     return mesh;
 }
@@ -113,6 +121,14 @@ std::vector<double> scheme::solve() {
     std::vector<double> ret_vec;
     for (Vector3D _vel : velocity) {
         ret_vec.push_back(_vel.x);
+    }
+    
+    real vec1 [] = {1., 1/4, 1/16};
+    Vector3D phiAdded(vec1); //Смещаемся на h/4 вправо
+    
+    for (int i = 0; i < num_of_nods; ++i) {
+        meshAdded.emplace_back(mesh[i]+h/4);
+        velocityAdded.emplace_back(velocity[i]*phiAdded);
     }
     
     std::cout << name << " had been solved" << std::endl;
