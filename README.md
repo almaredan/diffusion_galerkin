@@ -2,7 +2,7 @@
 
 Моделирование уравнения диффузии
 
-<img src="/tex/d432a93a95dd8685c03400030b164686.svg?invert_in_darkmode&sanitize=true" align=middle width=87.102477pt height=33.20539859999999pt/>
+<img src="/tex/7f50885ebc7168b9d6df993839eacf97.svg?invert_in_darkmode&sanitize=true" align=middle width=146.6131194pt height=36.460254599999985pt/>
 
 с начальным условием
 <img src="/tex/2c93875067c06ba6c47b6192f132b16a.svg?invert_in_darkmode&sanitize=true" align=middle width=111.80366669999998pt height=24.65753399999998pt/>
